@@ -1,0 +1,45 @@
+kind: pipeline
+type: docker
+name: Test
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: test
+    image: node:16-slim
+    when:
+      branch:
+        - main
+      pull: always
+    commands:
+      - npm i
+
+---
+kind: pipeline
+type: docker
+name: Build_and_publish
+
+depends_on:
+  - test
+
+steps:
+  - name: build_docker_image
+    image: shane/bt-test
+    when:
+      branch:
+        - main
+      event:
+        - push
+  
+    commands:
+      - docker build --platform linux/amd64 --rm=false -f ./images/Dockerfile -t shane-bt-test .
+    
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
