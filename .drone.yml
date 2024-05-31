@@ -13,7 +13,7 @@ steps:
         - main
       pull: always
     commands:
-      - npm i
+      - npm installs
 
 ---
 kind: pipeline
