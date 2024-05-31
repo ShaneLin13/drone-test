@@ -1,23 +1,5 @@
 kind: pipeline
 type: docker
-name: Test
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-  - name: test
-    image: node:18-slim
-    when:
-      branch:
-        - main
-      pull: always
-    commands:
-      - npm install
-
----
-kind: pipeline
-type: docker
 name: Build_and_publish
 
 depends_on:
@@ -25,7 +7,7 @@ depends_on:
 
 steps:
   - name: build_docker_image
-    image: node:16-slim
+    image: node:18-slim
     when:
       branch:
         - main
