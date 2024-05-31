@@ -2,9 +2,6 @@ kind: pipeline
 type: docker
 name: Build_and_publish
 
-depends_on:
-  - Test
-
 steps:
   - name: build_docker_image
     image: node:18-slim
