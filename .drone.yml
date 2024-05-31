@@ -7,13 +7,13 @@ platform:
 
 steps:
   - name: test
-    image: node:16-slim
+    image: node:18-slim
     when:
       branch:
         - main
       pull: always
     commands:
-      - npm installs
+      - npm install
 
 ---
 kind: pipeline
