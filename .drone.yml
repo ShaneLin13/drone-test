@@ -25,7 +25,7 @@ depends_on:
 
 steps:
   - name: build_docker_image
-    image: shane/bt-test
+    image: node:16-slim
     when:
       branch:
         - main
