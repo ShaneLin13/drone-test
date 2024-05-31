@@ -13,12 +13,3 @@ steps:
   
     commands:
       - docker build --platform linux/amd64 --rm=false -f ./images/Dockerfile -t shane-bt-test .
-    
-    volumes:
-      - name: docker_sock
-        path: /var/run/docker.sock
-
-volumes:
-  - name: docker_sock
-    host:
-      path: /var/run/docker.sock
