@@ -12,4 +12,4 @@ steps:
         - push
   
     commands:
-      - docker build --platform linux/amd64 --rm=false -f ./images/Dockerfile -t shane-bt-test .
+      - ls
