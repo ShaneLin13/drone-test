@@ -4,7 +4,7 @@ name: Build_and_publish
 
 steps:
   - name: build_docker_image
-    image: node:18-slim
+    image: alpine
     when:
       branch:
         - main
